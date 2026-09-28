@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ezra Ehoche — Salesforce Developer</title>
+<meta name="description" content="Ezra Ehoche — Salesforce Developer bridging business goals and technology. CRM implementations, workflow automation, and scalable solutions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f3f4f8;
+    --surface:#ffffff;
+    --ink:#171b26;
+    --ink-soft:#4b5265;
+    --ink-faint:#7b8194;
+    --line:#e4e7ef;
+    --accent:#0b5cab;        /* Salesforce-ish blue */
+    --accent-deep:#032d60;
+    --accent-soft:#eaf2fb;
+    --gold:#b98a2f;
+    --radius:14px;
+    --shadow:0 1px 2px rgba(15,23,42,.05),0 8px 24px -12px rgba(15,23,42,.12);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0e1220; --surface:#161b2c; --ink:#eef1f8; --ink-soft:#b6bdd0;
+      --ink-faint:#8a91a8; --line:#262d44; --accent:#6aa9e8; --accent-deep:#a8c9ee;
+      --accent-soft:#1b2a45; --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.6);
+    }
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    background:var(--bg); color:var(--ink);
+    line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:0 16px}
+
+  /* Nav */
+  nav{
+    position:sticky;top:0;z-index:20;
+    background:color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:56px}
+  .brand{font-weight:800;letter-spacing:-.02em;text-decoration:none;color:var(--ink);font-size:1.05rem}
+  .brand span{color:var(--accent)}
+  .nav-links{display:flex;gap:4px;flex-wrap:wrap}
+  .nav-links a{
+    text-decoration:none;color:var(--ink-soft);font-size:.85rem;font-weight:600;
+    padding:7px 11px;border-radius:8px;
+  }
+  .nav-links a:hover{background:var(--accent-soft);color:var(--accent)}
+  @media(max-width:640px){ .nav-links a:nth-child(n+5){display:none} }
+
+  /* Hero */
+  header.hero{padding:44px 0 8px}
+  .hero-card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);overflow:hidden;
+  }
+  .banner{
+    height:130px;
+    background:
+      radial-gradient(circle at 82% 20%, rgba(185,138,47,.5), transparent 42%),
+      linear-gradient(115deg, var(--accent-deep), var(--accent) 70%, #1f8bd8);
+  }
+  @media (prefers-color-scheme: dark){
+    .banner{background:
+      radial-gradient(circle at 82% 20%, rgba(185,138,47,.45), transparent 42%),
+      linear-gradient(115deg,#0a3a72,#0b5cab 70%,#1f8bd8);}
+  }
+  .hero-body{padding:0 28px 28px;position:relative}
+  .avatar{
+    width:112px;height:112px;border-radius:50%;
+    background:linear-gradient(140deg,var(--accent-deep),var(--accent));
+    color:#fff;display:flex;align-items:center;justify-content:center;
+    font-size:2.1rem;font-weight:800;letter-spacing:.02em;
+    border:4px solid var(--surface);
+    margin-top:-56px;
+  }
+  .hero-body h1{font-size:1.7rem;letter-spacing:-.02em;margin-top:14px}
+  .headline{color:var(--ink-soft);font-weight:500;margin-top:2px}
+  .meta{color:var(--ink-faint);font-size:.88rem;margin-top:6px}
+  .meta b{color:var(--accent);font-weight:600}
+  .cta-row{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+  .btn{
+    display:inline-block;text-decoration:none;font-weight:600;font-size:.9rem;
+    padding:9px 18px;border-radius:999px;border:1.5px solid var(--accent);
+  }
+  .btn.primary{background:var(--accent);color:#fff}
+  .btn.primary:hover{filter:brightness(1.08)}
+  .btn.ghost{color:var(--accent)}
+  .btn.ghost:hover{background:var(--accent-soft)}
+
+  /* Sections */
+  section{margin-top:22px}
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);padding:26px 28px;
+  }
+  .card h2{
+    font-size:1.15rem;letter-spacing:-.01em;margin-bottom:14px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .card h2::before{
+    content:"";width:5px;height:20px;border-radius:3px;background:var(--accent);display:inline-block;
+  }
+  .about p{color:var(--ink-soft);margin-bottom:12px}
+  .about p:last-child{margin-bottom:0}
+
+  /* Highlight strip */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+  .stat{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);padding:16px 18px;text-align:center;
+  }
+  .stat .num{font-weight:800;font-size:1.35rem;color:var(--accent);letter-spacing:-.02em}
+  .stat .lbl{font-size:.78rem;color:var(--ink-faint);margin-top:2px}
+
+  /* Experience */
+  .xp{list-style:none}
+  .xp li{
+    position:relative;padding:0 0 22px 26px;border-left:2px solid var(--line);margin-left:6px;
+  }
+  .xp li:last-child{padding-bottom:0}
+  .xp li::before{
+    content:"";position:absolute;left:-7px;top:5px;width:12px;height:12px;border-radius:50%;
+    background:var(--surface);border:3px solid var(--accent);
+  }
+  .xp .role{font-weight:700}
+  .xp .org{color:var(--ink-soft);font-size:.9rem}
+  .xp .when{color:var(--ink-faint);font-size:.8rem;margin-bottom:6px}
+  .xp p{color:var(--ink-soft);font-size:.92rem}
+
+  /* Projects */
+  .proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+  .proj{
+    border:1px solid var(--line);border-radius:12px;padding:18px;
+    background:linear-gradient(180deg, var(--accent-soft), transparent 55%);
+  }
+  .proj .tag{
+    display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:8px;
+  }
+  .proj h3{font-size:1rem;margin-bottom:6px}
+  .proj p{font-size:.88rem;color:var(--ink-soft)}
+
+  /* Certs & skills */
+  .cert-list{list-style:none;display:grid;gap:10px}
+  .cert-list li{
+    display:flex;gap:12px;align-items:flex-start;
+    border:1px solid var(--line);border-radius:10px;padding:12px 14px;
+  }
+  .cert-badge{
+    flex:0 0 auto;width:38px;height:38px;border-radius:9px;
+    background:var(--accent-soft);color:var(--accent);
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem;
+  }
+  .cert-list b{display:block;font-size:.92rem}
+  .cert-list span{font-size:.8rem;color:var(--ink-faint)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{
+    font-size:.8rem;font-weight:600;color:var(--accent-deep);
+    background:var(--accent-soft);border:1px solid transparent;
+    padding:6px 12px;border-radius:999px;
+  }
+
+  /* Recommendations */
+  .quote{
+    border-left:3px solid var(--gold);padding:4px 0 4px 16px;margin-bottom:18px;
+  }
+  .quote:last-child{margin-bottom:0}
+  .quote p{font-family:'Source Serif 4',serif;font-style:italic;color:var(--ink-soft)}
+  .quote .who{font-size:.8rem;color:var(--ink-faint);margin-top:6px;font-style:normal;font-family:'Inter',sans-serif}
+
+  /* Community */
+  .comm ul{list-style:none;display:grid;gap:10px}
+  .comm li{display:flex;gap:10px;color:var(--ink-soft);font-size:.92rem}
+  .comm li::before{content:"◆";color:var(--gold);font-size:.7rem;line-height:1.9}
+
+  /* Contact / footer */
+  .contact .cta-row{margin-top:4px}
+  footer{
+    text-align:center;color:var(--ink-faint);font-size:.8rem;
+    padding:36px 16px 44px;
+  }
+  footer a{color:var(--ink-faint)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">Ezra<span>.</span>Ehoche</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#certs">Certifications</a>
+      <a href="#community">Community</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap" id="top">
+
+  <header class="hero">
+    <div class="hero-card">
+      <div class="banner"></div>
+      <div class="hero-body">
+        <div class="avatar">EE</div>
+        <h1>Ezra Ehoche</h1>
+        <p class="headline">Salesforce Developer · Business Analyst · Project Delivery</p>
+        <p class="meta">Lagos, Nigeria · Remote-friendly · <b>Open to opportunities</b></p>
+        <div class="cta-row">
+          <a class="btn primary" href="#contact">Get in touch</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/ezraehoche" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="stats" aria-label="Highlights">
+    <div class="stat"><div class="num">4×</div><div class="lbl">Salesforce Certified</div></div>
+    <div class="stat"><div class="num">5+</div><div class="lbl">Years in the ecosystem</div></div>
+    <div class="stat"><div class="num">🥇</div><div class="lbl">Hackathon Winner 2025</div></div>
+    <div class="stat"><div class="num">1st</div><div class="lbl">Class Hons, Business Admin</div></div>
+  </section>
+
+  <section id="about">
+    <div class="card about">
+      <h2>About</h2>
+      <p>I bridge the gap between business goals and technology, combining Business Analysis, Project Management, and Salesforce Development to deliver practical, scalable solutions.</p>
+      <p>Experienced in leading cross-functional teams across time zones, I've executed CRM implementations, workflow automations, and system optimizations that improved business efficiency and user experience — with a proven track record of enhancing customer satisfaction and boosting ROI on technology adoption.</p>
+      <p>Backed by a strong foundation in Business Administration, I balance strategic thinking with hands-on technical execution. I'm passionate about building systems that drive adoption, optimize performance, and support sustainable growth — using technology to solve real problems and help organizations work smarter.</p>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="card">
+      <h2>Experience</h2>
+      <ul class="xp">
+        <li>
+          <div class="role">Salesforce Developer</div>
+          <div class="org">Salesforce consulting engagement · Contract, Remote</div>
+          <div class="when">2026 — Present</div>
+          <p>Building, configuring, and deploying Salesforce solutions on enterprise migration and implementation projects — Flows, custom objects, Experience Cloud, and data architecture — working alongside architects, testers, and client stakeholders.</p>
+        </li>
+        <li>
+          <div class="role">Digital Systems Developer &amp; Platform Manager</div>
+          <div class="org">Nonprofit / social enterprise · Remote</div>
+          <div class="when">2025 — 2026</div>
+          <p>Led digital platform governance across Salesforce, Airtable, Squarespace, and Google Cloud. Administered and optimized Salesforce (custom objects, Flows, security, integrations, release management), architected Airtable databases and automations, and reported directly to the CEO on digital transformation strategy.</p>
+        </li>
+        <li>
+          <div class="role">Business Technologist, Analyst &amp; Developer</div>
+          <div class="org">Salesforce consulting firm · Remote</div>
+          <div class="when">2025</div>
+          <p>Gathered and prioritized requirements, documented processes with UPNs and ERDs, managed user stories in Jira, and delivered Salesforce solutions including lead routing, ZoomInfo integration, and a legacy data cleanup and deduplication initiative.</p>
+        </li>
+        <li>
+          <div class="role">Program / Project Manager &amp; Delivery Lead</div>
+          <div class="org">Cloud consulting practice · Hybrid</div>
+          <div class="when">2024 — 2025</div>
+          <p>Ran Salesforce, Zoho, and Jira-based projects end to end: Agile delivery, stakeholder engagement from executives to engineers, distributed team leadership, risk management, and KPI tracking across scope, budget, and timelines.</p>
+        </li>
+        <li>
+          <div class="role">Salesforce Developer</div>
+          <div class="org">Creative studio · Part-time, Remote</div>
+          <div class="when">2023 — 2024</div>
+          <p>Led a team of six Salesforce professionals through implementation and development: requirement gathering, 11 process diagrams, web-to-lead with automation and validation rules, user management, and weekly status reporting for two teams.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="card">
+      <h2>Projects</h2>
+      <div class="proj-grid">
+        <div class="proj">
+          <span class="tag">🥇 1st Place · Hackathon 2025</span>
+          <h3>HealthConnector</h3>
+          <p>A Salesforce app closing the rural healthcare gap, where one doctor can serve five times more patients than the global standard. Recognized as the 1st place winner at the Salesforce Admin Group Jos Hackathon 2025.</p>
+        </div>
+        <div class="proj">
+          <span class="tag">Automation</span>
+          <h3>Record-Triggered Flow + Web-to-Lead</h3>
+          <p>A record-triggered flow that notifies the team the moment a lead is created, tested end to end through a live web-to-lead form on this very site.</p>
+        </div>
+        <div class="proj">
+          <span class="tag">Data Quality</span>
+          <h3>Legacy CRM Cleanup</h3>
+          <p>Led a data cleanup and deduplication initiative that improved CRM accuracy, reporting reliability, and overall system performance for a growing sales organization.</p>
+        </div>
+        <div class="proj">
+          <span class="tag">Integration</span>
+          <h3>Lead Routing + Data Enrichment</h3>
+          <p>Implemented lead routing rules and a ZoomInfo integration that automated data enrichment, cut response times, and lifted conversion rates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certs">
+    <div class="card">
+      <h2>Certifications</h2>
+      <ul class="cert-list">
+        <li><span class="cert-badge">SF</span><div><b>Salesforce Certified Service Cloud Consultant</b><span>Salesforce · 2024</span></div></li>
+        <li><span class="cert-badge">SF</span><div><b>4× Salesforce Certified</b><span>Administrator track &amp; consultant credentials</span></div></li>
+        <li><span class="cert-badge">GS</span><div><b>Salesforce DevOps Fundamentals</b><span>Gearset · 2023</span></div></li>
+      </ul>
+      <h2 style="margin-top:24px">Skills</h2>
+      <div class="chips">
+        <span class="chip">Salesforce Flows</span><span class="chip">Apex &amp; SOQL</span>
+        <span class="chip">Experience Cloud</span><span class="chip">Service Cloud</span>
+        <span class="chip">Data Migration</span><span class="chip">Business Analysis</span>
+        <span class="chip">Jira &amp; Agile</span><span class="chip">Process Mapping (UPN, ERD)</span>
+        <span class="chip">Airtable</span><span class="chip">Google Cloud</span>
+        <span class="chip">DevOps (Gearset)</span><span class="chip">Stakeholder Management</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="recommendations">
+    <div class="card">
+      <h2>What colleagues say</h2>
+      <div class="quote">
+        <p>"He consistently demonstrated a strong understanding of Salesforce fundamentals and an ability to think through solutions from both a technical and business perspective… reliable, collaborative, and steady under pressure."</p>
+        <div class="who">— Business Analyst &amp; 4× Salesforce Certified professional, former teammate</div>
+      </div>
+      <div class="quote">
+        <p>"What stood out most was his approach to the work — thoughtful, organized, and focused on solving the right problems. He's dependable, easy to work with, and consistent in delivery."</p>
+        <div class="who">— Revenue Cloud consultant, 6× Salesforce Certified, former teammate</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="community">
+    <div class="card comm">
+      <h2>Community &amp; Education</h2>
+      <ul>
+        <li>Active member of the Salesforce Trailblazer Community and West Africa Dreamin'</li>
+        <li>Salesforce Admin Group, Jos — hackathons, meetups, and end-of-year community hangouts</li>
+        <li>B.Sc. Business Administration &amp; Management, Ahmadu Bello University — First Class Honours</li>
+        <li>Member, Junior Chamber International (JCI) — leadership &amp; community development</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="card contact">
+      <h2>Contact</h2>
+      <p style="color:var(--ink-soft);margin-bottom:16px">Have a Salesforce project, a role, or an idea worth building? Let's talk.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="mailto:hello@ehoche.com">hello@ehoche.com</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/ezraehoche" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  © <span id="yr"></span> Ezra Ehoche · Built with care · <a href="#top">Back to top</a>
+</footer>
+
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
