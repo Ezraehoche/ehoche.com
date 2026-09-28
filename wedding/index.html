@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ebere &amp; Ezra — 12 December 2026</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Allura&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+  :root {
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    --cream: #FBF6EE;
+    --cream-deep: #F3EADA;
+    --gold: #C9A96A;
+    --gold-soft: #E2CFA4;
+    --burgundy: #5E1A26;
+    --rose: #B76E79;
+    --ink: #40271F;
+    --ink-soft: #6B4A3E;
+    --card: #FFFDF8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --cream: #201113;
+      --cream-deep: #2A171A;
+      --gold: #C9A96A;
+      --gold-soft: #8A6F45;
+      --burgundy: #E7C9CE;
+      --rose: #CE8B96;
+      --ink: #F0E4D4;
+      --ink-soft: #C9B39F;
+      --card: #2A181B;
+    }
+  }
+  :root[data-theme="dark"] {
+    --cream: #201113;
+    --cream-deep: #2A171A;
+    --gold: #C9A96A;
+    --gold-soft: #8A6F45;
+    --burgundy: #E7C9CE;
+    --rose: #CE8B96;
+    --ink: #F0E4D4;
+    --ink-soft: #C9B39F;
+    --card: #2A181B;
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); scroll-behavior: smooth; }
+  * , *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'EB Garamond', 'Georgia', serif;
+    font-size: 1.25rem;
+    line-height: 1.65;
+    text-align: center;
+  }
+  .wrap { max-width: 42rem; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* Hero */
+  .hero { padding: 6rem 0 4.5rem; }
+  .hero .invite {
+    font-size: 1.35rem;
+    font-style: italic;
+    color: var(--ink-soft);
+    margin: 0.75rem 0 0;
+  }
+  .names {
+    font-family: 'Allura', cursive;
+    font-weight: 400;
+    color: var(--ink);
+    font-size: clamp(3.4rem, 12vw, 6.2rem);
+    line-height: 1.25;
+    margin: 0;
+  }
+  .names .weds { color: var(--gold); font-size: 0.45em; font-family: 'EB Garamond', serif; font-style: italic; padding: 0 0.15em; vertical-align: 0.35em; }
+  .hero .date {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--burgundy);
+    margin: 0.5rem 0 0.25rem;
+  }
+  .hero .place { color: var(--ink-soft); margin: 0; font-style: italic; }
+  @media (prefers-reduced-motion: no-preference) {
+    .hero > * { animation: rise 0.9s ease both; }
+    .hero .date { animation-delay: 0.25s; }
+    .hero .place { animation-delay: 0.35s; }
+    @keyframes rise { from { opacity: 0; transform: translateY(0.6rem); } to { opacity: 1; transform: none; } }
+  }
+
+  .rule {
+    width: 5.5rem; height: 1px; background: var(--gold);
+    border: 0; margin: 0 auto;
+    position: relative;
+  }
+  .rule::after {
+    content: ""; position: absolute; left: 50%; top: 50%;
+    width: 7px; height: 7px; background: var(--gold);
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  section { padding: 3.5rem 0; }
+  h2 {
+    font-family: 'Allura', cursive;
+    font-weight: 400;
+    font-size: 2.5rem;
+    color: var(--burgundy);
+    margin: 1.75rem 0 1.25rem;
+  }
+  p { margin: 0 0 1.1rem; }
+  .muted { color: var(--ink-soft); }
+
+  /* Countdown */
+  .count { display: flex; justify-content: center; gap: 1.25rem; flex-wrap: wrap; margin-top: 1.5rem; }
+  .count div {
+    min-width: 5.2rem; padding: 1rem 0.5rem;
+    background: var(--card);
+    border: 1px solid var(--gold-soft);
+  }
+  .count b { display: block; font-size: 2.2rem; font-weight: 600; color: var(--burgundy); line-height: 1.1; }
+  .count span { font-size: 1rem; color: var(--ink-soft); }
+
+  /* Gallery */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.9rem;
+    margin-top: 1.5rem;
+  }
+  @media (min-width: 600px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
+  .gallery figure {
+    margin: 0;
+    aspect-ratio: 4 / 5;
+    background: var(--cream-deep);
+    border: 1px solid var(--gold-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .gallery figure img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .gallery .soon {
+    font-family: 'Marcellus', 'Georgia', serif;
+    color: var(--gold);
+    font-size: 1.2rem;
+    letter-spacing: 0.08em;
+  }
+
+  /* Details */
+  .detail { margin-bottom: 1.4rem; }
+  .detail .label { font-style: italic; color: var(--rose); margin-bottom: 0.1rem; }
+  .detail .value { font-size: 1.4rem; font-weight: 500; }
+
+  .swatches { display: flex; justify-content: center; gap: 1.4rem; flex-wrap: wrap; margin-top: 1rem; }
+  .swatch { width: 5rem; }
+  .swatch i {
+    display: block; width: 3.2rem; height: 3.2rem; border-radius: 50%;
+    margin: 0 auto 0.4rem; border: 1px solid rgba(0,0,0,0.12);
+  }
+  .swatch span { font-size: 1rem; color: var(--ink-soft); }
+
+  .registry {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.7rem;
+    max-width: 30rem;
+    margin: 1.5rem auto 0;
+  }
+  @media (min-width: 600px) { .registry { grid-template-columns: repeat(3, 1fr); } }
+  .registry div {
+    border: 1px solid var(--gold-soft);
+    background: var(--card);
+    padding: 0.85rem 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  /* Gift */
+  .gift-card {
+    background: var(--card);
+    border: 1px solid var(--gold-soft);
+    padding: 2rem 1.5rem;
+    max-width: 26rem;
+    margin: 1.5rem auto 0;
+  }
+  .gift-card .row { margin-bottom: 0.9rem; }
+  .gift-card .row .label { font-style: italic; color: var(--rose); font-size: 1.05rem; }
+  .gift-card .row .value { font-weight: 600; font-size: 1.3rem; }
+  button.copy {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.15rem; font-weight: 600;
+    color: var(--cream); background: var(--burgundy);
+    border: 0; padding: 0.7rem 1.8rem; margin-top: 0.5rem;
+    cursor: pointer;
+  }
+  :root[data-theme="dark"] button.copy, .dark-btn-fix { color: #FBF6EE; }
+  button.copy:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    section, hr.rule, footer {
+      opacity: 0;
+      transform: translateY(1.2rem);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    hr.rule { transform: none; }
+    .infocus { opacity: 1 !important; transform: none !important; }
+  }
+
+  footer { padding: 3.5rem 0 4.5rem; color: var(--ink-soft); }
+  footer .sign { font-family: 'Allura', cursive; font-size: 2.1rem; color: var(--ink); margin-bottom: 0.4rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <h1 class="names">Ebere <span class="weds">weds</span> Ezra</h1>
+    <p class="invite">on</p>
+    <p class="date">Saturday, 12 December 2026</p>
+    <p class="place">Asaba, Nigeria</p>
+  </header>
+
+  <hr class="rule">
+
+  <section>
+    <h2 id="countHead">Counting down</h2>
+    <p id="countMsg" hidden style="font-size:1.5rem; font-weight:500; color:var(--burgundy); margin-top:1.25rem;"></p>
+    <div class="count" id="count" aria-live="polite">
+      <div><b id="cd">—</b><span>days</span></div>
+      <div><b id="ch">—</b><span>hours</span></div>
+      <div><b id="cm">—</b><span>minutes</span></div>
+      <div><b id="cs">—</b><span>seconds</span></div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section>
+    <h2>Our story</h2>
+    <p>We met as strangers, a chance connection neither of us thought much of at the time. Then one conversation turned into a friendship, and the friendship slowly turned into the best part of our days.</p>
+    <p>The rest took care of itself. December makes it official, and we would love to celebrate it with you.</p>
+  </section>
+
+  <hr class="rule">
+
+  <section>
+    <h2>Our photos</h2>
+    <div class="gallery">
+      <figure><span class="soon">E &amp; E</span></figure>
+      <figure><span class="soon">E &amp; E</span></figure>
+      <figure><span class="soon">E &amp; E</span></figure>
+      <figure><span class="soon">E &amp; E</span></figure>
+      <figure><span class="soon">E &amp; E</span></figure>
+      <figure><span class="soon">E &amp; E</span></figure>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section>
+    <h2>The details</h2>
+    <div class="detail">
+      <div class="label">Date</div>
+      <div class="value">Saturday, 12 December 2026</div>
+    </div>
+    <div class="detail">
+      <div class="label">Time</div>
+      <div class="value">12 noon</div>
+    </div>
+    <div class="detail">
+      <div class="label">Colours of the day</div>
+      <div class="swatches">
+        <div class="swatch"><i style="background:#E2CFA4"></i><span>Champagne gold</span></div>
+        <div class="swatch"><i style="background:#40271F"></i><span>Chocolate brown</span></div>
+        <div class="swatch"><i style="background:#C99093"></i><span>Dusty rose</span></div>
+        <div class="swatch"><i style="background:#C1502E"></i><span>Burnt orange</span></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section>
+    <h2 id="rsvpHead">RSVP</h2>
+    <div id="rsvpPre">
+    <p>Kindly confirm your attendance by call or WhatsApp.</p>
+    <div id="rsvpHidden">
+      <button class="copy" id="revealBtn" type="button">Show RSVP number</button>
+    </div>
+    <div id="rsvpShown" hidden>
+      <p style="font-size:1.5rem; font-weight:600; margin-top:0.25rem;">
+        <a id="rsvpTel" href="#" style="color:var(--burgundy); text-decoration:none;"></a>
+      </p>
+      <p><a id="rsvpWa" href="#" style="color:var(--rose);">Message us on WhatsApp</a></p>
+    </div>
+    </div>
+    <div id="rsvpPost" hidden>
+      <p>Thank you to everyone who celebrated with us. Photos from the day will be up in the gallery soon.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section>
+    <h2 id="giftsHead">Gifts</h2>
+    <div id="giftsPre">
+    <p>If you would like to give a gift toward our new home, here is what we are hoping for.</p>
+    <div class="registry">
+      <div>Honeymoon fund</div>
+      <div>Cookware</div>
+      <div>Air conditioner</div>
+      <div>Deep freezer</div>
+      <div>Smart TV</div>
+      <div>Microwave</div>
+      <div>Blender</div>
+      <div>Sound system</div>
+      <div>Vacuum cleaner</div>
+    </div>
+    <p style="margin-top:1.75rem;">Cash gifts and the honeymoon fund can go to the account below.</p>
+    <div class="gift-card">
+      <div class="row"><div class="label">Account name</div><div class="value" id="acctName">Ezra Ehoche</div></div>
+      <div class="row"><div class="label">Account number</div><div class="value" id="acctNo">&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;</div></div>
+      <div class="row"><div class="label">Bank</div><div class="value" id="acctBank">Providus Bank</div></div>
+      <div class="row"><div class="label">Narration</div><div class="value">Wedding gift</div></div>
+      <button class="copy" id="acctBtn" type="button">Show account number</button>
+      <button class="copy" id="copyBtn" hidden>Copy account details</button>
+    </div>
+    </div>
+    <div id="giftsPost" hidden>
+      <p>To everyone who blessed us with a gift toward our new home, thank you. Your generosity means more than you know.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div style="font-style:italic; margin-bottom:0.2rem;">With love,</div>
+    <div class="sign">Ebere &amp; Ezra</div>
+    <div>12 December 2026 · Asaba, Nigeria</div>
+  </footer>
+
+</div>
+
+<script>
+  (function () {
+    var weddingStart = new Date('2026-12-12T00:00:00+01:00').getTime();
+    var weddingEnd = new Date('2026-12-13T00:00:00+01:00').getTime();
+    var d = document.getElementById('cd'),
+        h = document.getElementById('ch'),
+        m = document.getElementById('cm'),
+        s = document.getElementById('cs');
+    var head = document.getElementById('countHead');
+    var msg = document.getElementById('countMsg');
+    var boxes = document.getElementById('count');
+    function pad(n) { return n < 10 ? '0' + n : '' + n; }
+    function tick() {
+      var now = Date.now();
+      if (now < weddingStart) {
+        var diff = weddingStart - now;
+        d.textContent = Math.floor(diff / 86400000);
+        h.textContent = pad(Math.floor(diff / 3600000) % 24);
+        m.textContent = pad(Math.floor(diff / 60000) % 60);
+        s.textContent = pad(Math.floor(diff / 1000) % 60);
+        setTimeout(tick, 1000);
+      } else if (now < weddingEnd) {
+        head.textContent = 'The day is here';
+        boxes.hidden = true;
+        msg.textContent = 'Today, we say I do.';
+        msg.hidden = false;
+        setTimeout(tick, 60000);
+      } else {
+        var days = Math.floor((now - weddingStart) / 86400000);
+        head.textContent = 'Happily married';
+        boxes.hidden = true;
+        msg.textContent = days === 1 ? 'One day and counting.' : days + ' days and counting.';
+        msg.hidden = false;
+        afterWedding();
+        setTimeout(tick, 3600000);
+      }
+    }
+
+    function afterWedding() {
+      document.getElementById('rsvpPre').hidden = true;
+      document.getElementById('rsvpPost').hidden = false;
+      document.getElementById('rsvpHead').textContent = 'We said I do';
+      document.getElementById('giftsPre').hidden = true;
+      document.getElementById('giftsPost').hidden = false;
+      document.getElementById('giftsHead').textContent = 'Thank you';
+    }
+    tick();
+
+    var revealBtn = document.getElementById('revealBtn');
+    var shownBox = document.getElementById('rsvpShown');
+    var hiddenBox = document.getElementById('rsvpHidden');
+    function hideRsvp() {
+      shownBox.hidden = true;
+      hiddenBox.hidden = false;
+      var tel = document.getElementById('rsvpTel');
+      tel.textContent = '';
+      tel.setAttribute('href', '#');
+      document.getElementById('rsvpWa').setAttribute('href', '#');
+      document.removeEventListener('click', outsideClick, true);
+    }
+    function outsideClick(e) {
+      if (!shownBox.contains(e.target)) { hideRsvp(); }
+    }
+    revealBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var z = ['4143', '06960', '7432']; // reversed chunks, reversed order
+      var n = z.reverse().map(function (c) { return c.split('').reverse().join(''); }).join('');
+      var local = '0' + n.slice(3);
+      var pretty = local.slice(0, 4) + ' ' + local.slice(4, 7) + ' ' + local.slice(7);
+      var tel = document.getElementById('rsvpTel');
+      tel.textContent = pretty;
+      tel.setAttribute('href', 'tel:' + '+' + n);
+      document.getElementById('rsvpWa').setAttribute('href', 'https:' + '//wa.me/' + n);
+      hiddenBox.hidden = true;
+      shownBox.hidden = false;
+      tel.focus();
+      setTimeout(function () {
+        document.addEventListener('click', outsideClick, true);
+      }, 0);
+      shownBox.addEventListener('focusout', function (ev) {
+        setTimeout(function () {
+          if (!shownBox.hidden && !shownBox.contains(document.activeElement)) { hideRsvp(); }
+        }, 0);
+      });
+    });
+
+    var acctBtn = document.getElementById('acctBtn');
+    acctBtn.addEventListener('click', function () {
+      var q = ['917', '751', '9056']; // reversed chunks, reversed order
+      var acct = q.reverse().map(function (c) { return c.split('').reverse().join(''); }).join('');
+      document.getElementById('acctNo').textContent = acct;
+      acctBtn.hidden = true;
+      document.getElementById('copyBtn').hidden = false;
+    });
+
+
+    function hideAcct() {
+      document.getElementById('acctNo').textContent = '\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022';
+      document.getElementById('copyBtn').hidden = true;
+      acctBtn.hidden = false;
+    }
+    var btn = document.getElementById('copyBtn');
+    btn.addEventListener('click', function () {
+      var text = 'Account name: ' + document.getElementById('acctName').textContent +
+                 '\nAccount number: ' + document.getElementById('acctNo').textContent +
+                 '\nBank: ' + document.getElementById('acctBank').textContent +
+                 '\nNarration: Wedding gift';
+      function done() {
+        var old = btn.textContent;
+        btn.textContent = 'Copied';
+        setTimeout(function () { btn.textContent = old; }, 2000);
+      }
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done, fallback);
+        } else { fallback(); }
+      } catch (e) { fallback(); }
+      function fallback() {
+        try {
+          var ta = document.createElement('textarea');
+          ta.value = text;
+          ta.style.position = 'fixed'; ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          done();
+        } catch (e) { btn.textContent = 'Copy failed, note it down'; }
+      }
+    });
+
+    // Re-hide revealed numbers once their section scrolls out of view
+    if ('IntersectionObserver' in window) {
+      var rsvpSection = hiddenBox.closest('section');
+      var giftCard = document.querySelector('.gift-card');
+      var hider = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { return; }
+          if (en.target === rsvpSection && !shownBox.hidden) { hideRsvp(); }
+          if (en.target === giftCard && acctBtn.hidden) { hideAcct(); }
+        });
+      }, { threshold: 0 });
+      if (rsvpSection) { hider.observe(rsvpSection); }
+      if (giftCard) { hider.observe(giftCard); }
+    }
+
+    if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      var faders = document.querySelectorAll('section, hr.rule, footer');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting) { en.target.classList.add('infocus'); }
+            else { en.target.classList.remove('infocus'); }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
+        faders.forEach(function (el) { io.observe(el); });
+      } else {
+        faders.forEach(function (el) { el.classList.add('infocus'); });
+      }
+    }
+  })();
+</script>
+</body>
+</html>
