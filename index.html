@@ -1,576 +1,369 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Ebere &amp; Ezra — 12 December 2026</title>
-<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ezra Ehoche — Salesforce Developer</title>
+<meta name="description" content="Ezra Ehoche builds Salesforce systems that make businesses run smarter. Salesforce Developer and Business Technologist, Lagos, Nigeria.">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
-<meta name="description" content="Ebere weds Ezra — Saturday, 12 December 2026, Asaba, Nigeria.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Ebere weds Ezra — 12 December 2026">
-<meta property="og:description" content="Join us in Asaba on Saturday, 12 December 2026.">
-<meta property="og:image" content="https://ehoche.com/wedding/photo1.jpg">
-<meta property="og:url" content="https://ehoche.com/wedding/">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Allura&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<meta property="og:title" content="Ezra Ehoche — Salesforce Developer">
+<meta property="og:description" content="I build Salesforce systems that make businesses run smarter. From requirements to release: Flows, Apex, Experience Cloud, and the data architecture underneath.">
+<meta property="og:url" content="https://ehoche.com/">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    box-sizing: border-box;
-    padding-top: env(safe-area-inset-top, 0px);
-    padding-bottom: env(safe-area-inset-bottom, 0px);
-    --cream: #FBF6EE;
-    --cream-deep: #F3EADA;
-    --gold: #C9A96A;
-    --gold-soft: #E2CFA4;
-    --burgundy: #5E1A26;
-    --rose: #B76E79;
-    --ink: #40271F;
-    --ink-soft: #6B4A3E;
-    --card: #FFFDF8;
+  :root{
+    --paper:#F0EEE6;
+    --paper-deep:#E6E3D6;
+    --ink:#14161F;
+    --ink-soft:#4C4F5C;
+    --cobalt:#2438D6;
+    --tangerine:#E8631A;
+    --line:#C9C5B4;
+    --card:#FAF9F4;
   }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --cream: #201113;
-      --cream-deep: #2A171A;
-      --gold: #C9A96A;
-      --gold-soft: #8A6F45;
-      --burgundy: #E7C9CE;
-      --rose: #CE8B96;
-      --ink: #F0E4D4;
-      --ink-soft: #C9B39F;
-      --card: #2A181B;
-    }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Archivo',system-ui,sans-serif;
+    background:var(--paper);color:var(--ink);
+    line-height:1.6;-webkit-font-smoothing:antialiased;
   }
-  :root[data-theme="dark"] {
-    --cream: #201113;
-    --cream-deep: #2A171A;
-    --gold: #C9A96A;
-    --gold-soft: #8A6F45;
-    --burgundy: #E7C9CE;
-    --rose: #CE8B96;
-    --ink: #F0E4D4;
-    --ink-soft: #C9B39F;
-    --card: #2A181B;
+  .wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+  a{color:inherit}
+  .mono{font-family:'IBM Plex Mono',monospace}
+
+  /* Top bar */
+  nav{
+    position:sticky;top:0;z-index:40;
+    background:color-mix(in srgb, var(--paper) 90%, transparent);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
   }
-  html { scroll-padding-top: env(safe-area-inset-top, 0px); scroll-behavior: smooth; }
-  * , *::before, *::after { box-sizing: inherit; }
-  body {
-    margin: 0;
-    background: var(--cream);
-    color: var(--ink);
-    font-family: 'EB Garamond', 'Georgia', serif;
-    font-size: 1.25rem;
-    line-height: 1.65;
-    text-align: center;
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+  .logo{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:.95rem;letter-spacing:.03em;text-decoration:none}
+  .logo b{color:var(--cobalt)}
+  .nav-links{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+  .nav-links a{
+    text-decoration:none;font-size:.85rem;font-weight:600;color:var(--ink-soft);
+    padding:7px 11px;border-radius:6px;
   }
-  .wrap { max-width: 42rem; margin: 0 auto; padding: 0 1.5rem; }
+  .nav-links a:hover{color:var(--cobalt)}
+  .status{
+    display:inline-flex;align-items:center;gap:7px;
+    font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.08em;
+    border:1px solid var(--line);border-radius:999px;padding:6px 13px;background:var(--card);
+    white-space:nowrap;
+  }
+  .status .dot{width:8px;height:8px;border-radius:50%;background:var(--tangerine);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  @media(max-width:760px){ .nav-links a:nth-child(-n+4){display:none} }
 
   /* Hero */
-  .hero{
-    position:relative; isolation:isolate; overflow:hidden;
-    width:100vw; margin-left:calc(50% - 50vw);
-    min-height:84vh;
-    display:flex; flex-direction:column; justify-content:center; align-items:center;
-    padding:7rem 1.5rem 6rem;
-    background-image:url('photo1.jpg');
-    background-size:cover; background-position:center 30%;
+  .hero{padding:84px 0 56px;border-bottom:1px solid var(--line)}
+  .kicker{
+    font-family:'IBM Plex Mono',monospace;font-size:.8rem;letter-spacing:.14em;
+    color:var(--ink-soft);margin-bottom:22px;text-transform:uppercase;
   }
-  .hero::before{
-    content:""; position:absolute; inset:0; z-index:1;
-    background:linear-gradient(180deg, rgba(38,20,14,.40), rgba(38,20,14,.72));
+  .kicker b{color:var(--tangerine);font-weight:500}
+  h1{
+    font-weight:900;letter-spacing:-.03em;line-height:1.02;
+    font-size:clamp(2.6rem,7.2vw,5rem);text-wrap:balance;max-width:16ch;
   }
-  .hero > *{ position:relative; z-index:2; }
-  .hero-blur, .hero-sharp{ display:none; }
-  @media (min-aspect-ratio: 6/5) {
-    .hero{ background-image:none; background-color:#2B1A12; min-height:92vh; }
-    .hero .hero-blur{
-      display:block; position:absolute; inset:0; z-index:0;
-      background:url('photo1.jpg') center 30% / cover no-repeat;
-      filter:blur(26px) brightness(.85);
-      transform:scale(1.12);
-      animation:none;
-    }
-    .hero .hero-sharp{
-      display:block; position:absolute; inset:0; z-index:0;
-      background:url('photo1.jpg') center / contain no-repeat;
-      animation:none;
-    }
+  h1 .hl{color:var(--cobalt)}
+  .hero .sub{
+    max-width:56ch;color:var(--ink-soft);font-size:1.08rem;margin-top:26px;
   }
-  .hero .invite {
-    font-size: 1.35rem;
-    font-style: italic;
-    color: var(--ink-soft);
-    margin: 0.75rem 0 0;
+  .cta-row{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
+  .btn{
+    display:inline-block;text-decoration:none;font-weight:700;font-size:.92rem;
+    padding:13px 26px;border:2px solid var(--ink);border-radius:4px;transition:.18s;
   }
-  .names {
-    font-family: 'Allura', cursive;
-    font-weight: 400;
-    color: var(--ink);
-    font-size: clamp(3.4rem, 12vw, 6.2rem);
-    line-height: 1.25;
-    margin: 0;
+  .btn.solid{background:var(--ink);color:var(--paper)}
+  .btn.solid:hover{background:var(--cobalt);border-color:var(--cobalt)}
+  .btn.line:hover{background:var(--ink);color:var(--paper)}
+
+  /* Code card */
+  .codecard{
+    margin-top:52px;background:var(--ink);color:#D9DCE8;border-radius:10px;
+    padding:22px 24px;font-family:'IBM Plex Mono',monospace;font-size:.86rem;line-height:1.75;
+    overflow-x:auto;box-shadow:0 24px 50px -32px rgba(20,22,31,.55);
   }
-  .names .weds { color: var(--gold); font-size: 0.45em; font-family: 'EB Garamond', serif; font-style: italic; padding: 0 0.15em; vertical-align: 0.35em; }
-  .hero .date {
-    font-size: 1.5rem;
-    font-weight: 500;
-    color: var(--burgundy);
-    margin: 0.5rem 0 0.25rem;
+  .codecard .cmt{color:#7B8096}
+  .codecard .kw{color:#7EA6FF}
+  .codecard .str{color:#F0B26B}
+  .codecard .out{color:#8CE39B}
+
+  /* Ticker stats */
+  .ticker{border-bottom:1px solid var(--line);background:var(--paper-deep)}
+  .ticker-inner{
+    display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 28px;
+    padding:16px 0;font-family:'IBM Plex Mono',monospace;font-size:.8rem;letter-spacing:.06em;
+    color:var(--ink-soft);
   }
-  .hero .place { color: var(--ink-soft); margin: 0; font-style: italic; }
-  .hero .names{ color:#FBF6EE; }
-  .hero .names .weds{ color:#E2CFA4; }
-  .hero .invite, .hero .place{ color:#EADFCE; }
-  .hero .date{ color:#F3E3C2; }
-  .hero .invite, .hero .place, .hero .date{ text-shadow:0 1px 14px rgba(38,20,14,.6); }
-  .hero .names{ text-shadow:0 2px 26px rgba(38,20,14,.5); }
-  @media (prefers-reduced-motion: no-preference) {
-    .hero > * { animation: rise 0.9s ease both; }
-    .hero .date { animation-delay: 0.25s; }
-    .hero .place { animation-delay: 0.35s; }
-    @keyframes rise { from { opacity: 0; transform: translateY(0.6rem); } to { opacity: 1; transform: none; } }
+  .ticker-inner span b{color:var(--ink);font-weight:500}
+
+  section{padding:76px 0 8px}
+  .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:40px;flex-wrap:wrap}
+  .sec-head h2{font-weight:900;letter-spacing:-.02em;font-size:clamp(1.7rem,3.6vw,2.4rem)}
+  .sec-head .mono{font-size:.78rem;color:var(--tangerine);letter-spacing:.14em}
+
+  /* Work */
+  .work{display:grid;gap:20px}
+  .proj{
+    background:var(--card);border:1px solid var(--line);border-radius:10px;
+    padding:30px 30px 26px;display:grid;gap:14px;
+    grid-template-columns:1fr;transition:.18s;
+  }
+  .proj:hover{border-color:var(--cobalt);transform:translateY(-2px)}
+  .proj .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.12em;
+    color:var(--tangerine);text-transform:uppercase;
+  }
+  .proj h3{font-weight:800;font-size:1.35rem;letter-spacing:-.01em}
+  .proj p{color:var(--ink-soft);font-size:.97rem;max-width:72ch}
+  .proj .impact{color:var(--ink);font-weight:600;font-size:.95rem}
+  .proj .impact::before{content:"→ ";color:var(--cobalt)}
+  .stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+  .stack span{
+    font-family:'IBM Plex Mono',monospace;font-size:.72rem;
+    border:1px solid var(--line);border-radius:999px;padding:4px 12px;color:var(--ink-soft);
+    background:var(--paper);
   }
 
-  .rule {
-    width: 5.5rem; height: 1px; background: var(--gold);
-    border: 0; margin: 0 auto;
-    position: relative;
+  /* Approach */
+  .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+  .col{border-top:3px solid var(--cobalt);padding-top:18px}
+  .col:nth-child(2){border-color:var(--tangerine)}
+  .col:nth-child(3){border-color:var(--ink)}
+  .col h3{font-weight:800;font-size:1.05rem;margin-bottom:8px}
+  .col p{color:var(--ink-soft);font-size:.94rem}
+
+  /* Toolbox */
+  .toolgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px}
+  .toolgroup h3{
+    font-family:'IBM Plex Mono',monospace;font-size:.75rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px;
   }
-  .rule::after {
-    content: ""; position: absolute; left: 50%; top: 50%;
-    width: 7px; height: 7px; background: var(--gold);
-    transform: translate(-50%, -50%) rotate(45deg);
+  .toolgroup ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+  .toolgroup li{
+    font-size:.88rem;font-weight:600;background:var(--card);
+    border:1px solid var(--line);border-radius:6px;padding:7px 13px;
   }
 
-  section { padding: 3.5rem 0; }
-  h2 {
-    font-family: 'Allura', cursive;
-    font-weight: 400;
-    font-size: 2.5rem;
-    color: var(--burgundy);
-    margin: 1.75rem 0 1.25rem;
+  /* Certs + quotes */
+  .certs{display:grid;gap:10px;margin-bottom:44px}
+  .cert{
+    display:flex;gap:14px;align-items:center;background:var(--card);
+    border:1px solid var(--line);border-radius:8px;padding:14px 18px;
   }
-  p { margin: 0 0 1.1rem; }
-  .muted { color: var(--ink-soft); }
+  .cert .mono{font-size:.7rem;color:var(--cobalt);letter-spacing:.1em;
+    border:1px solid var(--line);border-radius:4px;padding:4px 8px;background:var(--paper);white-space:nowrap}
+  .cert b{font-size:.95rem}
+  .cert span.when{margin-left:auto;color:var(--ink-soft);font-size:.82rem;white-space:nowrap}
+  .quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+  .quote{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:24px}
+  .quote p{color:var(--ink-soft);font-size:.95rem}
+  .quote p::before{content:"“";color:var(--tangerine);font-size:1.6rem;font-weight:800;line-height:0;vertical-align:-6px;margin-right:2px}
+  .quote .who{margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.06em;color:var(--ink)}
 
-  /* Countdown */
-  .count { display: flex; justify-content: center; gap: 1.25rem; flex-wrap: wrap; margin-top: 1.5rem; }
-  .count div {
-    min-width: 5.2rem; padding: 1rem 0.5rem;
-    background: var(--card);
-    border: 1px solid var(--gold-soft);
-  }
-  .count b { display: block; font-size: 2.2rem; font-weight: 600; color: var(--burgundy); line-height: 1.1; }
-  .count span { font-size: 1rem; color: var(--ink-soft); }
+  /* Community */
+  .comm{color:var(--ink-soft);max-width:70ch}
+  .comm b{color:var(--ink)}
 
-  /* Gallery */
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.9rem;
-    margin-top: 1.5rem;
+  /* Footer CTA */
+  .foot-cta{
+    margin-top:84px;background:var(--ink);color:var(--paper);
+    padding:90px 0 80px;
   }
-  @media (min-width: 600px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
-  .gallery figure {
-    margin: 0;
-    aspect-ratio: 4 / 5;
-    background: var(--cream-deep);
-    border: 1px solid var(--gold-soft);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+  .foot-cta .mono{color:var(--tangerine);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
+  .foot-cta h2{
+    font-weight:900;letter-spacing:-.03em;line-height:1.05;
+    font-size:clamp(2.2rem,6vw,4rem);margin:16px 0 10px;
   }
-  .gallery figure img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .gallery .soon {
-    font-family: 'Marcellus', 'Georgia', serif;
-    color: var(--gold);
-    font-size: 1.2rem;
-    letter-spacing: 0.08em;
+  .foot-cta a.mail{
+    color:var(--paper);font-weight:800;font-size:clamp(1.2rem,3vw,1.8rem);
+    text-decoration-color:var(--cobalt);text-underline-offset:6px;
   }
-
-  /* Details */
-  .detail { margin-bottom: 1.4rem; }
-  .detail .label { font-style: italic; color: var(--rose); margin-bottom: 0.1rem; }
-  .detail .value { font-size: 1.4rem; font-weight: 500; }
-
-  .swatches { display: flex; justify-content: center; gap: 1.4rem; flex-wrap: wrap; margin-top: 1rem; }
-  .swatch { width: 5rem; }
-  .swatch i {
-    display: block; width: 3.2rem; height: 3.2rem; border-radius: 50%;
-    margin: 0 auto 0.4rem; border: 1px solid rgba(0,0,0,0.12);
-  }
-  .swatch span { font-size: 1rem; color: var(--ink-soft); }
-
-  .wishbox { margin-top: 1.25rem; }
-  .wishbox summary {
-    list-style: none;
-    display: inline-block;
-    cursor: pointer;
-    font-family: 'EB Garamond', serif;
-    font-size: 1.15rem; font-weight: 600;
-    color: var(--cream); background: var(--burgundy);
-    padding: 0.7rem 1.8rem;
-  }
-  .wishbox summary::-webkit-details-marker { display: none; }
-  .wishbox summary::after { content: "  \25BE"; }
-  .wishbox[open] summary::after { content: "  \25B4"; }
-  .wishbox summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
-  .registry {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.7rem;
-    max-width: 30rem;
-    margin: 1.5rem auto 0;
-  }
-  @media (min-width: 600px) { .registry { grid-template-columns: repeat(3, 1fr); } }
-  .registry div {
-    border: 1px solid var(--gold-soft);
-    background: var(--card);
-    padding: 0.85rem 0.5rem;
-    font-size: 1.1rem;
-  }
-
-  /* Gift */
-  .gift-card {
-    background: var(--card);
-    border: 1px solid var(--gold-soft);
-    padding: 2rem 1.5rem;
-    max-width: 26rem;
-    margin: 1.5rem auto 0;
-  }
-  .gift-card .row { margin-bottom: 0.9rem; }
-  .gift-card .row .label { font-style: italic; color: var(--rose); font-size: 1.05rem; }
-  .gift-card .row .value { font-weight: 600; font-size: 1.3rem; }
-  button.copy {
-    font-family: 'EB Garamond', serif;
-    font-size: 1.15rem; font-weight: 600;
-    color: var(--cream); background: var(--burgundy);
-    border: 0; padding: 0.7rem 1.8rem; margin-top: 0.5rem;
-    cursor: pointer;
-  }
-  :root[data-theme="dark"] button.copy, .dark-btn-fix { color: #FBF6EE; }
-  button.copy:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
-
-  @media (prefers-reduced-motion: no-preference) {
-    section, hr.rule, footer {
-      opacity: 0;
-      transform: translateY(1.2rem);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    hr.rule { transform: none; }
-    .infocus { opacity: 1 !important; transform: none !important; }
-  }
-
-  footer { padding: 3.5rem 0 4.5rem; color: var(--ink-soft); }
-  footer .sign { font-family: 'Allura', cursive; font-size: 2.1rem; color: var(--ink); margin-bottom: 0.4rem; }
+  .foot-cta a.mail:hover{color:#9DB1FF}
+  .foot-links{display:flex;gap:22px;margin-top:34px;flex-wrap:wrap}
+  .foot-links a{color:#A7ABBD;font-size:.88rem;text-decoration:none;font-weight:600}
+  .foot-links a:hover{color:var(--paper)}
+  .foot-note{margin-top:44px;color:#5A5E70;font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.06em}
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <header class="hero">
-    <div class="hero-blur" aria-hidden="true"></div>
-    <div class="hero-sharp" aria-hidden="true"></div>
-    <h1 class="names">Ebere <span class="weds">weds</span> Ezra</h1>
-    <p class="invite">on</p>
-    <p class="date">Saturday, 12 December 2026</p>
-    <p class="place">Asaba, Nigeria</p>
-  </header>
-
-  <hr class="rule">
-
-  <section>
-    <h2 id="countHead">Counting down</h2>
-    <p id="countMsg" hidden style="font-size:1.5rem; font-weight:500; color:var(--burgundy); margin-top:1.25rem;"></p>
-    <div class="count" id="count" aria-live="polite">
-      <div><b id="cd">—</b><span>days</span></div>
-      <div><b id="ch">—</b><span>hours</span></div>
-      <div><b id="cm">—</b><span>minutes</span></div>
-      <div><b id="cs">—</b><span>seconds</span></div>
+<nav>
+  <div class="wrap nav-inner">
+    <a class="logo" href="#top">Ezra Ehoche<b>.</b></a>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#approach">Approach</a>
+      <a href="#toolbox">Toolbox</a>
+      <a href="#proof">Proof</a>
+      <a href="#contact" class="status"><span class="dot"></span>OPEN TO WORK</a>
     </div>
-  </section>
+  </div>
+</nav>
 
-  <hr class="rule">
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="kicker">Salesforce Developer · Business Technologist · <b>Lagos, Nigeria</b></p>
+    <h1>I build <span class="hl">Salesforce systems</span> that make businesses run smarter.</h1>
+    <p class="sub">From requirements to release: Flows, Apex, Experience Cloud, and the data architecture underneath. I sit between the business and the build, and I ship work people actually adopt.</p>
+    <div class="cta-row">
+      <a class="btn solid" href="#work">See my work</a>
+      <a class="btn line" href="https://www.linkedin.com/in/ezraehoche" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div class="codecard" aria-label="Sample query">
+      <div><span class="cmt">// what I do all day, in one query</span></div>
+      <div><span class="kw">SELECT</span> Problem__c, Root_Cause__c <span class="kw">FROM</span> Business_Process__c</div>
+      <div><span class="kw">WHERE</span> Status = <span class="str">'Manual'</span> <span class="kw">AND</span> Owner.Frustrated__c = <span class="str">true</span></div>
+      <div><span class="out">→ 47 rows returned. Automating…  ✓ done.</span></div>
+    </div>
+  </div>
+</header>
 
-  <section>
-    <h2>Our story</h2>
-    <p>We met as strangers, a chance connection neither of us thought much of at the time. Then one conversation turned into a friendship, and the friendship slowly turned into the best part of our days.</p>
-    <p>The rest took care of itself. December makes it official, and we would love to celebrate it with you.</p>
-  </section>
-
-  <hr class="rule">
-
-  <!-- Our photos section hidden for now; uncomment to bring it back
-  <section>
-    <h2>Our photos</h2>
-    <div class="gallery">
-      <figure><img src="photo1.jpg" alt="Ebere and Ezra, hands clasped behind his neck, her ring catching the light"></figure>
-      <figure><span class="soon">E &amp; E</span></figure>
-      <figure><span class="soon">E &amp; E</span></figure>
-      <figure><span class="soon">E &amp; E</span></figure>
-      <figure><span class="soon">E &amp; E</span></figure>
-      <figure><span class="soon">E &amp; E</span></figure>
-    </div>
-  </section>
-
-  <hr class="rule">
-  -->
-
-  <section>
-    <h2>The details</h2>
-    <div class="detail">
-      <div class="label">Date</div>
-      <div class="value">Saturday, 12 December 2026</div>
-    </div>
-    <div class="detail">
-      <div class="label">Time</div>
-      <div class="value">12 noon</div>
-    </div>
-    <div class="detail">
-      <div class="label">Colours of the day</div>
-      <div class="swatches">
-        <div class="swatch"><i style="background:#E2CFA4"></i><span>Champagne gold</span></div>
-        <div class="swatch"><i style="background:#6E7B46"></i><span>Olive green</span></div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="rule">
-
-  <section>
-    <h2 id="rsvpHead">RSVP</h2>
-    <div id="rsvpPre">
-    <p>Kindly confirm your attendance by call or WhatsApp.</p>
-    <div id="rsvpHidden">
-      <button class="copy" id="revealBtn" type="button">Show RSVP number</button>
-    </div>
-    <div id="rsvpShown" hidden>
-      <p style="font-size:1.5rem; font-weight:600; margin-top:0.25rem;">
-        <a id="rsvpTel" href="#" style="color:var(--burgundy); text-decoration:none;"></a>
-      </p>
-      <p><a id="rsvpWa" href="#" style="color:var(--rose);">Message us on WhatsApp</a></p>
-    </div>
-    </div>
-    <div id="rsvpPost" hidden>
-      <p>Thank you to everyone who celebrated with us. Photos from the day will be up in the gallery soon.</p>
-    </div>
-  </section>
-
-  <hr class="rule">
-
-  <section>
-    <h2 id="giftsHead">Gifts</h2>
-    <div id="giftsPre">
-    <p>If you would like to give a gift toward our new home, here is what we are hoping for.</p>
-    <details class="wishbox">
-      <summary>View our wishlist</summary>
-    <div class="registry">
-      <div>Honeymoon fund</div>
-      <div>Cookware</div>
-      <div>Air conditioner</div>
-      <div>Deep freezer</div>
-      <div>Washing machine</div>
-      <div>Microwave</div>
-      <div>Blender</div>
-      <div>4-burner gas cooker</div>
-      <div>Vacuum cleaner</div>
-    </div>
-    </details>
-    <p style="margin-top:1.75rem;">Cash gifts and the honeymoon fund can go to the account below.</p>
-    <div class="gift-card">
-      <div id="acctIntro">
-        <button class="copy" id="acctBtn" type="button">Show account details</button>
-      </div>
-      <div id="acctDetails" hidden>
-        <div class="row"><div class="label">Account name</div><div class="value" id="acctName"></div></div>
-        <div class="row"><div class="label">Account number</div><div class="value" id="acctNo"></div></div>
-        <div class="row"><div class="label">Bank</div><div class="value" id="acctBank"></div></div>
-        <div class="row"><div class="label">Narration</div><div class="value">Wedding gift</div></div>
-        <button class="copy" id="copyBtn">Copy account details</button>
-      </div>
-    </div>
-    </div>
-    <div id="giftsPost" hidden>
-      <p>To everyone who blessed us with a gift toward our new home, thank you. Your generosity means more than you know.</p>
-    </div>
-  </section>
-
-  <footer>
-    <div style="font-style:italic; margin-bottom:0.2rem;">With love,</div>
-    <div class="sign">Ebere &amp; Ezra</div>
-    <div>12 December 2026 · Asaba, Nigeria</div>
-  </footer>
-
+<div class="ticker">
+  <div class="wrap ticker-inner">
+    <span><b>4×</b> Salesforce Certified</span>
+    <span><b>5+</b> years in the ecosystem</span>
+    <span><b>1st place</b> · Hackathon 2025</span>
+    <span><b>6-person</b> teams led</span>
+    <span><b>First Class</b> Hons, Business Admin</span>
+  </div>
 </div>
 
-<script>
-  (function () {
-    var weddingStart = new Date('2026-12-12T00:00:00+01:00').getTime();
-    var weddingEnd = new Date('2026-12-13T00:00:00+01:00').getTime();
-    var d = document.getElementById('cd'),
-        h = document.getElementById('ch'),
-        m = document.getElementById('cm'),
-        s = document.getElementById('cs');
-    var head = document.getElementById('countHead');
-    var msg = document.getElementById('countMsg');
-    var boxes = document.getElementById('count');
-    function pad(n) { return n < 10 ? '0' + n : '' + n; }
-    function tick() {
-      var now = Date.now();
-      if (now < weddingStart) {
-        var diff = weddingStart - now;
-        d.textContent = Math.floor(diff / 86400000);
-        h.textContent = pad(Math.floor(diff / 3600000) % 24);
-        m.textContent = pad(Math.floor(diff / 60000) % 60);
-        s.textContent = pad(Math.floor(diff / 1000) % 60);
-        setTimeout(tick, 1000);
-      } else if (now < weddingEnd) {
-        head.textContent = 'The day is here';
-        boxes.hidden = true;
-        msg.textContent = 'Today, we say I do.';
-        msg.hidden = false;
-        setTimeout(tick, 60000);
-      } else {
-        var days = Math.floor((now - weddingStart) / 86400000);
-        head.textContent = 'Happily married';
-        boxes.hidden = true;
-        msg.textContent = days === 1 ? 'One day and counting.' : days + ' days and counting.';
-        msg.hidden = false;
-        afterWedding();
-        setTimeout(tick, 3600000);
-      }
-    }
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head"><span class="mono">SELECTED WORK</span><h2>What I've shipped.</h2></div>
+    <div class="work">
+      <div class="proj">
+        <span class="tag">Enterprise Migration</span>
+        <h3>NPSP to Nonprofit Cloud Migration</h3>
+        <p>A large social-services nonprofit needed to move off legacy NPSP onto Salesforce Nonprofit Cloud, 72,000+ records across multiple programs, without breaking the workflows staff depend on. As lead developer and solution architect I ran it from requirements through to production: record types, an Experience Cloud portal for partner agencies, sharing architecture, flow-based rollups, and the data migration underneath.</p>
+        <p>Traced a recurring automation fault to a single architectural root cause and fixed it without weakening a compliance lock. Closed a permission leak with targeted SOQL. Built multi-agency data isolation so each partner sees only its own cases while internal staff see all.</p>
+        <p class="impact">72,000+ records live in production, with staff workflows intact.</p>
+        <div class="stack"><span>Nonprofit Cloud</span><span>Experience Cloud</span><span>Sharing Architecture</span><span>Flows</span><span>SOQL</span><span>Data Migration</span></div>
+      </div>
+      <div class="proj">
+        <span class="tag">🥇 1st Place · Salesforce Hackathon 2025</span>
+        <h3>HealthConnector</h3>
+        <p>In some rural communities one doctor serves five times more patients than the global standard. HealthConnector is a Salesforce app that connects those communities to care more efficiently, built on research showing every $1 invested in digital health returns up to $8 in savings.</p>
+        <p class="impact">Won 1st place at the Salesforce Admin Group Jos Hackathon 2025.</p>
+        <div class="stack"><span>Salesforce Platform</span><span>Flows</span><span>Custom Objects</span><span>Team of 4</span></div>
+      </div>
+      <div class="proj">
+        <span class="tag">Integration &amp; Automation</span>
+        <h3>Lead Routing + Data Enrichment</h3>
+        <p>A sales team was losing leads to slow, manual assignment. I implemented routing rules and integrated ZoomInfo so every new lead arrives enriched and lands with the right owner in seconds.</p>
+        <p class="impact">Faster response times and a measurable lift in conversion rates.</p>
+        <div class="stack"><span>Salesforce</span><span>ZoomInfo</span><span>Assignment Rules</span><span>Flows</span></div>
+      </div>
+      <div class="proj">
+        <span class="tag">Data Quality</span>
+        <h3>Legacy CRM Cleanup</h3>
+        <p>Years of duplicate and stale records had made reporting unreliable. I led a cleanup and deduplication initiative across the org: audit, matching rules, merge strategy, and guardrails so it stays clean.</p>
+        <p class="impact">Reporting the leadership team could finally trust.</p>
+        <div class="stack"><span>Data Migration</span><span>Duplicate Rules</span><span>Salesforce Inspector</span><span>Reports</span></div>
+      </div>
+      <div class="proj">
+        <span class="tag">End-to-end Delivery</span>
+        <h3>CRM Implementation for a Creative Studio</h3>
+        <p>Led a team of six Salesforce professionals through a full implementation: requirement gathering with the client, 11 process diagrams, web-to-lead with automation and validation rules, user management, and weekly status reporting.</p>
+        <p class="impact">From blank org to a working CRM the whole studio uses.</p>
+        <div class="stack"><span>Web-to-Lead</span><span>Validation Rules</span><span>User Management</span><span>Team Lead</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    function afterWedding() {
-      document.getElementById('rsvpPre').hidden = true;
-      document.getElementById('rsvpPost').hidden = false;
-      document.getElementById('rsvpHead').textContent = 'We said I do';
-      document.getElementById('giftsPre').hidden = true;
-      document.getElementById('giftsPost').hidden = false;
-      document.getElementById('giftsHead').textContent = 'Thank you';
-    }
-    tick();
+<section id="approach">
+  <div class="wrap">
+    <div class="sec-head"><span class="mono">HOW I WORK</span><h2>Analyse. Build. Deliver.</h2></div>
+    <div class="cols">
+      <div class="col">
+        <h3>Analyse like a BA</h3>
+        <p>Requirements, stakeholder alignment, process maps with UPNs and ERDs, user stories in Jira. I find the real problem before anyone writes a line of configuration.</p>
+      </div>
+      <div class="col">
+        <h3>Build like a developer</h3>
+        <p>Flows, Apex, custom objects, integrations, security. Solutions designed to scale and documented so the next person isn't lost.</p>
+      </div>
+      <div class="col">
+        <h3>Deliver like a PM</h3>
+        <p>Agile ceremonies, distributed teams across time zones, risk management, and KPIs tracked against scope, budget, and timeline. Shipped is the only status that counts.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    var revealBtn = document.getElementById('revealBtn');
-    var shownBox = document.getElementById('rsvpShown');
-    var hiddenBox = document.getElementById('rsvpHidden');
-    function hideRsvp() {
-      shownBox.hidden = true;
-      hiddenBox.hidden = false;
-      var tel = document.getElementById('rsvpTel');
-      tel.textContent = '';
-      tel.setAttribute('href', '#');
-      document.getElementById('rsvpWa').setAttribute('href', '#');
-      document.removeEventListener('click', outsideClick, true);
-    }
-    function outsideClick(e) {
-      if (!shownBox.contains(e.target)) { hideRsvp(); }
-    }
-    revealBtn.addEventListener('click', function (e) {
-      e.stopPropagation();
-      var z = ['4143', '06960', '7432']; // reversed chunks, reversed order
-      var n = z.reverse().map(function (c) { return c.split('').reverse().join(''); }).join('');
-      var local = '0' + n.slice(3);
-      var pretty = local.slice(0, 4) + ' ' + local.slice(4, 7) + ' ' + local.slice(7);
-      var tel = document.getElementById('rsvpTel');
-      tel.textContent = pretty;
-      tel.setAttribute('href', 'tel:' + '+' + n);
-      document.getElementById('rsvpWa').setAttribute('href', 'https:' + '//wa.me/' + n);
-      hiddenBox.hidden = true;
-      shownBox.hidden = false;
-      tel.focus();
-      setTimeout(function () {
-        document.addEventListener('click', outsideClick, true);
-      }, 0);
-      shownBox.addEventListener('focusout', function (ev) {
-        setTimeout(function () {
-          if (!shownBox.hidden && !shownBox.contains(document.activeElement)) { hideRsvp(); }
-        }, 0);
-      });
-    });
+<section id="toolbox">
+  <div class="wrap">
+    <div class="sec-head"><span class="mono">TOOLBOX</span><h2>What I reach for.</h2></div>
+    <div class="toolgrid">
+      <div class="toolgroup">
+        <h3>Platform</h3>
+        <ul><li>Flows</li><li>Apex &amp; SOQL</li><li>Experience Cloud</li><li>Service Cloud</li><li>Security &amp; Sharing</li></ul>
+      </div>
+      <div class="toolgroup">
+        <h3>Data &amp; Integration</h3>
+        <ul><li>Data Migration</li><li>Duplicate Management</li><li>ZoomInfo</li><li>Airtable</li><li>Google Cloud</li></ul>
+      </div>
+      <div class="toolgroup">
+        <h3>Delivery</h3>
+        <ul><li>Business Analysis</li><li>Jira &amp; Agile</li><li>UPN / ERD Mapping</li><li>Gearset DevOps</li><li>Stakeholder Management</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-    var acctBtn = document.getElementById('acctBtn');
-    acctBtn.addEventListener('click', function () {
-      var q = ['5108', '306', '848']; // reversed chunks, reversed order
-      var acct = q.reverse().map(function (c) { return c.split('').reverse().join(''); }).join('');
-      document.getElementById('acctNo').textContent = acct;
-      document.getElementById('acctName').textContent = atob('VmljdG9yeSBFYmVyZWNodWt3dSBPbnllb2dp');
-      document.getElementById('acctBank').textContent = atob('RkNNQg==');
-      document.getElementById('acctIntro').hidden = true;
-      document.getElementById('acctDetails').hidden = false;
-    });
+<section id="proof">
+  <div class="wrap">
+    <div class="sec-head"><span class="mono">PROOF</span><h2>Certified, and vouched for.</h2></div>
+    <div class="certs">
+      <div class="cert"><span class="mono">CERT</span><b>Salesforce Certified Service Cloud Consultant</b><span class="when">Salesforce · 2024</span></div>
+      <div class="cert"><span class="mono">CERT</span><b>4× Salesforce Certified</b><span class="when">Admin &amp; consultant credentials</span></div>
+      <div class="cert"><span class="mono">CERT</span><b>Salesforce DevOps Fundamentals</b><span class="when">Gearset · 2023</span></div>
+    </div>
+    <div class="quotes">
+      <div class="quote">
+        <p>He consistently demonstrated a strong understanding of Salesforce fundamentals and an ability to think through solutions from both a technical and business perspective… reliable, collaborative, and steady under pressure.</p>
+        <div class="who">— BUSINESS ANALYST, 4× CERTIFIED · FORMER TEAMMATE</div>
+      </div>
+      <div class="quote">
+        <p>What stood out most was his approach to the work — thoughtful, organized, and focused on solving the right problems. He's dependable, easy to work with, and consistent in delivery.</p>
+        <div class="who">— REVENUE CLOUD CONSULTANT, 6× CERTIFIED · FORMER TEAMMATE</div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<section id="community">
+  <div class="wrap">
+    <div class="sec-head"><span class="mono">COMMUNITY</span><h2>Beyond the org.</h2></div>
+    <p class="comm">Active in the <b>Salesforce Trailblazer Community</b> and <b>West Africa Dreamin'</b>, and a regular at the <b>Salesforce Admin Group, Jos</b>: hackathons, meetups, and the occasional unplugged hangout. <b>B.Sc. Business Administration, Ahmadu Bello University</b> (First Class Honours), and a member of Junior Chamber International.</p>
+  </div>
+</section>
 
-    function hideAcct() {
-      document.getElementById('acctNo').textContent = '';
-      document.getElementById('acctName').textContent = '';
-      document.getElementById('acctBank').textContent = '';
-      document.getElementById('acctDetails').hidden = true;
-      document.getElementById('acctIntro').hidden = false;
-    }
-    var btn = document.getElementById('copyBtn');
-    btn.addEventListener('click', function () {
-      var text = 'Account name: ' + document.getElementById('acctName').textContent +
-                 '\nAccount number: ' + document.getElementById('acctNo').textContent +
-                 '\nBank: ' + document.getElementById('acctBank').textContent +
-                 '\nNarration: Wedding gift';
-      function done() {
-        var old = btn.textContent;
-        btn.textContent = 'Copied';
-        setTimeout(function () { btn.textContent = old; }, 2000);
-      }
-      try {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(text).then(done, fallback);
-        } else { fallback(); }
-      } catch (e) { fallback(); }
-      function fallback() {
-        try {
-          var ta = document.createElement('textarea');
-          ta.value = text;
-          ta.style.position = 'fixed'; ta.style.opacity = '0';
-          document.body.appendChild(ta);
-          ta.select();
-          document.execCommand('copy');
-          document.body.removeChild(ta);
-          done();
-        } catch (e) { btn.textContent = 'Copy failed, note it down'; }
-      }
-    });
+<div class="foot-cta" id="contact">
+  <div class="wrap">
+    <p class="mono">CONTACT</p>
+    <h2>Have a project?<br>Let's build it right.</h2>
+    <a class="mail" href="mailto:hello@ehoche.com">hello@ehoche.com</a>
+    <div class="foot-links">
+      <a href="https://www.linkedin.com/in/ezraehoche" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#top">Back to top</a>
+    </div>
+    <p class="foot-note">© <span id="yr"></span> EZRA EHOCHE · BUILT BY HAND, HOSTED ON GITHUB PAGES</p>
+  </div>
+</div>
 
-    // Re-hide revealed numbers once their section scrolls out of view
-    if ('IntersectionObserver' in window) {
-      var rsvpSection = hiddenBox.closest('section');
-      var giftCard = document.querySelector('.gift-card');
-      var hider = new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) {
-          if (en.isIntersecting) { return; }
-          if (en.target === rsvpSection && !shownBox.hidden) { hideRsvp(); }
-          if (en.target === giftCard && !document.getElementById('acctDetails').hidden) { hideAcct(); }
-        });
-      }, { threshold: 0 });
-      if (rsvpSection) { hider.observe(rsvpSection); }
-      if (giftCard) { hider.observe(giftCard); }
-    }
-
-    if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      var faders = document.querySelectorAll('section, hr.rule, footer');
-      if ('IntersectionObserver' in window) {
-        var io = new IntersectionObserver(function (entries) {
-          entries.forEach(function (en) {
-            if (en.isIntersecting) { en.target.classList.add('infocus'); }
-            else { en.target.classList.remove('infocus'); }
-          });
-        }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
-        faders.forEach(function (el) { io.observe(el); });
-      } else {
-        faders.forEach(function (el) { el.classList.add('infocus'); });
-      }
-    }
-  })();
-</script>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
 </body>
 </html>
