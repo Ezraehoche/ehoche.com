@@ -58,7 +58,20 @@
   .wrap { max-width: 42rem; margin: 0 auto; padding: 0 1.5rem; }
 
   /* Hero */
-  .hero { padding: 6rem 0 4.5rem; }
+  .hero{
+    position:relative;
+    width:100vw; margin-left:calc(50% - 50vw);
+    min-height:84vh;
+    display:flex; flex-direction:column; justify-content:center; align-items:center;
+    padding:7rem 1.5rem 6rem;
+    background-image:url('photo1.jpg');
+    background-size:cover; background-position:center 30%;
+  }
+  .hero::before{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(38,20,14,.40), rgba(38,20,14,.72));
+  }
+  .hero > *{ position:relative; z-index:1; }
   .hero .invite {
     font-size: 1.35rem;
     font-style: italic;
@@ -81,6 +94,12 @@
     margin: 0.5rem 0 0.25rem;
   }
   .hero .place { color: var(--ink-soft); margin: 0; font-style: italic; }
+  .hero .names{ color:#FBF6EE; }
+  .hero .names .weds{ color:#E2CFA4; }
+  .hero .invite, .hero .place{ color:#EADFCE; }
+  .hero .date{ color:#F3E3C2; }
+  .hero .invite, .hero .place, .hero .date{ text-shadow:0 1px 14px rgba(38,20,14,.6); }
+  .hero .names{ text-shadow:0 2px 26px rgba(38,20,14,.5); }
   @media (prefers-reduced-motion: no-preference) {
     .hero > * { animation: rise 0.9s ease both; }
     .hero .date { animation-delay: 0.25s; }
@@ -159,6 +178,20 @@
   }
   .swatch span { font-size: 1rem; color: var(--ink-soft); }
 
+  .wishbox { margin-top: 1.25rem; }
+  .wishbox summary {
+    list-style: none;
+    display: inline-block;
+    cursor: pointer;
+    font-family: 'EB Garamond', serif;
+    font-size: 1.15rem; font-weight: 600;
+    color: var(--cream); background: var(--burgundy);
+    padding: 0.7rem 1.8rem;
+  }
+  .wishbox summary::-webkit-details-marker { display: none; }
+  .wishbox summary::after { content: "  \25BE"; }
+  .wishbox[open] summary::after { content: "  \25B4"; }
+  .wishbox summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
   .registry {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -242,10 +275,11 @@
 
   <hr class="rule">
 
+  <!-- Our photos section hidden for now; uncomment to bring it back
   <section>
     <h2>Our photos</h2>
     <div class="gallery">
-      <figure><span class="soon">E &amp; E</span></figure>
+      <figure><img src="photo1.jpg" alt="Ebere and Ezra, hands clasped behind his neck, her ring catching the light"></figure>
       <figure><span class="soon">E &amp; E</span></figure>
       <figure><span class="soon">E &amp; E</span></figure>
       <figure><span class="soon">E &amp; E</span></figure>
@@ -255,6 +289,7 @@
   </section>
 
   <hr class="rule">
+  -->
 
   <section>
     <h2>The details</h2>
@@ -270,9 +305,7 @@
       <div class="label">Colours of the day</div>
       <div class="swatches">
         <div class="swatch"><i style="background:#E2CFA4"></i><span>Champagne gold</span></div>
-        <div class="swatch"><i style="background:#40271F"></i><span>Chocolate brown</span></div>
-        <div class="swatch"><i style="background:#C99093"></i><span>Dusty rose</span></div>
-        <div class="swatch"><i style="background:#C1502E"></i><span>Burnt orange</span></div>
+        <div class="swatch"><i style="background:#6E7B46"></i><span>Olive green</span></div>
       </div>
     </div>
   </section>
@@ -304,25 +337,32 @@
     <h2 id="giftsHead">Gifts</h2>
     <div id="giftsPre">
     <p>If you would like to give a gift toward our new home, here is what we are hoping for.</p>
+    <details class="wishbox">
+      <summary>View our wishlist</summary>
     <div class="registry">
       <div>Honeymoon fund</div>
       <div>Cookware</div>
       <div>Air conditioner</div>
       <div>Deep freezer</div>
-      <div>Smart TV</div>
+      <div>Washing machine</div>
       <div>Microwave</div>
       <div>Blender</div>
-      <div>Sound system</div>
+      <div>4-burner gas cooker</div>
       <div>Vacuum cleaner</div>
     </div>
+    </details>
     <p style="margin-top:1.75rem;">Cash gifts and the honeymoon fund can go to the account below.</p>
     <div class="gift-card">
-      <div class="row"><div class="label">Account name</div><div class="value" id="acctName">Ezra Ehoche</div></div>
-      <div class="row"><div class="label">Account number</div><div class="value" id="acctNo">&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;</div></div>
-      <div class="row"><div class="label">Bank</div><div class="value" id="acctBank">Providus Bank</div></div>
-      <div class="row"><div class="label">Narration</div><div class="value">Wedding gift</div></div>
-      <button class="copy" id="acctBtn" type="button">Show account number</button>
-      <button class="copy" id="copyBtn" hidden>Copy account details</button>
+      <div id="acctIntro">
+        <button class="copy" id="acctBtn" type="button">Show account details</button>
+      </div>
+      <div id="acctDetails" hidden>
+        <div class="row"><div class="label">Account name</div><div class="value" id="acctName"></div></div>
+        <div class="row"><div class="label">Account number</div><div class="value" id="acctNo"></div></div>
+        <div class="row"><div class="label">Bank</div><div class="value" id="acctBank"></div></div>
+        <div class="row"><div class="label">Narration</div><div class="value">Wedding gift</div></div>
+        <button class="copy" id="copyBtn">Copy account details</button>
+      </div>
     </div>
     </div>
     <div id="giftsPost" hidden>
@@ -426,18 +466,22 @@
 
     var acctBtn = document.getElementById('acctBtn');
     acctBtn.addEventListener('click', function () {
-      var q = ['917', '751', '9056']; // reversed chunks, reversed order
+      var q = ['5108', '306', '848']; // reversed chunks, reversed order
       var acct = q.reverse().map(function (c) { return c.split('').reverse().join(''); }).join('');
       document.getElementById('acctNo').textContent = acct;
-      acctBtn.hidden = true;
-      document.getElementById('copyBtn').hidden = false;
+      document.getElementById('acctName').textContent = atob('VmljdG9yeSBFYmVyZWNodWt3dSBPbnllb2dp');
+      document.getElementById('acctBank').textContent = atob('RkNNQg==');
+      document.getElementById('acctIntro').hidden = true;
+      document.getElementById('acctDetails').hidden = false;
     });
 
 
     function hideAcct() {
-      document.getElementById('acctNo').textContent = '\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022';
-      document.getElementById('copyBtn').hidden = true;
-      acctBtn.hidden = false;
+      document.getElementById('acctNo').textContent = '';
+      document.getElementById('acctName').textContent = '';
+      document.getElementById('acctBank').textContent = '';
+      document.getElementById('acctDetails').hidden = true;
+      document.getElementById('acctIntro').hidden = false;
     }
     var btn = document.getElementById('copyBtn');
     btn.addEventListener('click', function () {
@@ -477,7 +521,7 @@
         entries.forEach(function (en) {
           if (en.isIntersecting) { return; }
           if (en.target === rsvpSection && !shownBox.hidden) { hideRsvp(); }
-          if (en.target === giftCard && acctBtn.hidden) { hideAcct(); }
+          if (en.target === giftCard && !document.getElementById('acctDetails').hidden) { hideAcct(); }
         });
       }, { threshold: 0 });
       if (rsvpSection) { hider.observe(rsvpSection); }
